@@ -3,81 +3,66 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Interview Sim: Rehearse with an interviewer who actually listens</title>
-<meta name="description" content="Voice or text answers, follow-up questions when you are vague, live STAR and filler checks, and an honest report.">
+<title>Interview Sim: Mock interviews with follow-up questions and a written report</title>
+<meta name="description" content="Set the role, level and kind of interview, then answer by typing or speaking. The interviewer follows up when an answer is thin, and the report covers structure, specifics and filler words. Keep a bank of STAR stories to reuse.">
 <meta property="og:title" content="Interview Sim">
-<meta property="og:description" content="Voice or text answers, follow-up questions when you are vague, live STAR and filler checks, and an honest report.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f766e'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='Arial,Helvetica,sans-serif' font-weight='700' font-size='13' fill='white'%3EIS%3C/text%3E%3C/svg%3E">
+<meta property="og:description" content="Set the role, level and kind of interview, then answer by typing or speaking. The interviewer follows up when an answer is thin, and the report covers structure, specifics and filler words. Keep a bank of STAR stories to reuse.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232e6b62'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-family='Georgia,serif' font-weight='700' font-size='19' fill='white'%3EI%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style id="type">:root { --font-head: 'Source Serif 4', Georgia, serif; --font-body: 'Source Sans 3', system-ui, sans-serif; }</style>
 <link rel="stylesheet" href="styles/base.css">
 <link rel="stylesheet" href="styles/landing.css">
-<style>:root { --accent: #0f766e; }</style>
+<style>:root { --accent: #2e6b62; }</style>
 </head>
 <body class="landing">
-<header class="l-nav">
-  <a class="l-brand" href="#top"><span class="logo">IS</span><b>Interview Sim</b></a>
-  <nav aria-label="Sections"><a href="#demo">Demo</a><a href="#ask">Ask it</a><a href="#features">Features</a><a href="#faq">FAQ</a></nav>
-  <div class="l-nav-cta"><a class="btn ghost" href="login.html">Log in</a><a class="btn primary" href="login.html">Get started free</a></div>
-</header>
+<header class="l-nav"><div class="l-wrap l-nav-in">
+  <a class="l-brand" href="#top">Interview Sim</a>
+  <nav aria-label="Sections"><a href="#demo">Try it</a><a href="#ask">Commands</a><a href="#features">Features</a><a href="https://github.com/dguywhoknows/interview-practice" rel="noopener">Source</a></nav>
+  <div class="l-nav-cta"><a class="btn ghost" href="login.html">Log in</a><a class="btn primary" href="login.html">Sign up free</a></div>
+</div></header>
 
 <main id="top">
-  <section class="l-hero">
-    <p class="l-kicker">Free · runs in your browser · AI built in</p>
-    <h1>Rehearse with an interviewer who actually listens.</h1>
-    <p class="l-sub">Voice or text answers, follow-up questions when you are vague, live STAR and filler checks, and an honest report.</p>
-    <div class="l-actions"><a class="btn primary big" href="login.html">Get started free</a><a class="btn big" href="#demo">See it working</a></div>
+  <section class="l-wrap l-hero">
+    <h1>Mock interviews with follow-up questions and a written report.</h1>
+    <p class="l-sub">Set the role, level and kind of interview, then answer by typing or speaking. The interviewer follows up when an answer is thin, and the report covers structure, specifics and filler words. Keep a bank of STAR stories to reuse.</p>
+    <div class="l-actions"><a class="btn primary big" href="login.html">Sign up free</a><a class="l-link" href="#demo">Or try it on this page</a></div>
+    <p class="l-meta">Version 2.0.0 · MIT license · <a href="https://github.com/dguywhoknows/interview-practice" rel="noopener">github.com/dguywhoknows/interview-practice</a></p>
   </section>
 
-  <section class="l-demo reveal" id="demo">
-    <div class="l-window"><div class="l-window-bar"><i></i><i></i><i></i><span>Interview Sim</span></div>
-      <iframe src="app.html?embed=1" title="Interview Sim live demo" loading="lazy"></iframe></div>
-    <p class="l-caption">This is the real app running below, not a recording. Try it.</p>
+  <section class="l-wrap l-demo" id="demo">
+    <div class="l-frame"><iframe src="app.html?embed=1" title="Interview Sim" loading="lazy"></iframe></div>
+    <p class="l-caption">The app itself, running inside this page. Anything you do here is saved in your browser.</p>
   </section>
 
-  <section class="l-section reveal" id="ask">
-    <div class="l-head"><p class="l-kicker">Just say what you want</p><h2>Tell it in plain words. It uses its own tools to do it.</h2>
-      <p>Open the AI box in the app, type a request, and the AI drives the app's real features for you: it sets things up, edits, runs and reports back. Standing instructions let you shape every AI feature to how you like to work.</p></div>
-    <div class="l-prompts"><div class="l-prompt"><div class="say">Mock interview for a junior data analyst, behavioral, tough</div><div class="does">Sets up the interview and asks the first question.</div></div><div class="l-prompt"><div class="say">Save my story about fixing the deploy pipeline</div><div class="does">Adds a STAR story to your bank.</div></div><div class="l-prompt"><div class="say">Drill me on conflict questions</div><div class="does">Starts a timed drill for that competency.</div></div></div>
+  <section class="l-wrap l-section" id="ask">
+    <h2>Ask it to do things</h2>
+    <p class="l-lead">Press Ctrl+K in the app (Cmd+K on a Mac) and describe what you want. The model chooses from Interview Sim's own functions, runs them in order and tells you what changed. Some examples:</p>
+    <table class="l-cmds"><tr><td class="say">Mock interview for a junior data analyst, behavioral, tough</td><td>Sets up the interview and asks the first question.</td></tr><tr><td class="say">Save my story about fixing the deploy pipeline</td><td>Adds a STAR story to your bank.</td></tr><tr><td class="say">Drill me on conflict questions</td><td>Starts a timed drill for that competency.</td></tr></table>
+    <p class="l-small">Instructions you save in the same box, such as "keep it short" or "I'm a beginner", are added to every AI request the app makes.</p>
   </section>
 
-  <section class="l-section reveal" id="features">
-    <div class="l-head"><p class="l-kicker">What it does</p><h2>Everything in one place</h2></div>
-    <div class="l-grid"><div class="l-card"><h3>Configurable role</h3><p>Configurable role, level, interview type, persona, question count</p></div><div class="l-card"><h3>Adaptive follow-up probes decided by the AI</h3><p>Adaptive follow-up probes decided by the AI from your actual answer</p></div><div class="l-card"><h3>Voice answers</h3><p>Voice answers via SpeechRecognition with live transcription; questions via speech synthesis</p></div><div class="l-card"><h3>Live analytics</h3><p>Words, wpm, fillers, hedges, numbers, I/we ownership, STAR detector</p></div><div class="l-card"><h3>Scored report</h3><p>Per-answer 1-5, strengths, fixes, stronger-answer outlines, overall signal</p></div><div class="l-card"><h3>Markdown report export</h3><p>Markdown report export</p></div><div class="l-card"><h3>Prep page</h3><p>Paste a job description to extract the skills it mentions (ranked by frequency, without false matches like &quot;go&quot; inside words), requirement sentences, years of experience and behavioral themes, then generate likely questions or start an interview tailored to it</p></div><div class="l-card"><h3>Stories page</h3><p>A STAR story bank tagged by competency, with coverage gaps, AI tightening that never invents numbers, and search that ranks your stories against any question</p></div><div class="l-card"><h3>During behavioral interviews the best-matching</h3><p>During behavioral interviews the best-matching saved stories appear beside the question</p></div></div>
+  <section class="l-wrap l-section" id="features">
+    <h2>Features</h2>
+    <dl class="l-feats"><div><dt>Configurable role</dt><dd>Level, interview type, persona, question count.</dd></div><div><dt>Adaptive follow-up probes decided by the AI</dt><dd>From your actual answer.</dd></div><div><dt>Voice answers</dt><dd>Via SpeechRecognition with live transcription; questions via speech synthesis.</dd></div><div><dt>Live analytics</dt><dd>Words, wpm, fillers, hedges, numbers, I/we ownership, STAR detector.</dd></div><div><dt>Scored report</dt><dd>Per-answer 1-5, strengths, fixes, stronger-answer outlines, overall signal.</dd></div><div><dt>Markdown report export</dt></div><div><dt>Prep page</dt><dd>Paste a job description to extract the skills it mentions (ranked by frequency, without false matches like &quot;go&quot; inside words), requirement sentences, years of experience and behavioral themes, then generate likely questions or start an interview tailored to it.</dd></div><div><dt>Stories page</dt><dd>A STAR story bank tagged by competency, with coverage gaps, AI tightening that never invents numbers, and search that ranks your stories against any question.</dd></div><div><dt>During behavioral interviews the best-matching</dt><dd>Saved stories appear beside the question.</dd></div><div><dt>Drills page</dt><dd>One timed question at a time per competency, scored on STAR structure, length and fillers with a specific tip.</dd></div></dl>
   </section>
 
-  <section class="l-section reveal">
-    <div class="l-head"><p class="l-kicker">How it works</p><h2>Real engines where it counts, AI where it helps</h2></div>
-    <div class="l-steps">
-      <div><span>1</span><h3>Create a free account</h3><p>One account works across every app on this site.</p></div>
-      <div><span>2</span><h3>Ask in your own words</h3><p>Type or click. The AI handles conversational question generation with persona + competency coverage; follow-up decision (JSON); rubric-based evaluation (JSON) informed by local metrics.</p></div>
-      <div><span>3</span><h3>Keep what you make</h3><p>Your work is saved in your browser and can be exported any time.</p></div>
-    </div>
-    <p class="l-note">Computed locally, with no AI involved: speech-to-text plumbing, timing, linguistic metrics, STAR detection, report rendering.</p>
+  <section class="l-wrap l-section l-split">
+    <div><h2>Runs in your browser</h2><p>Speech-to-text plumbing, timing, linguistic metrics, STAR detection, report rendering. None of this needs a network connection or a model.</p></div>
+    <div><h2>Uses a language model for</h2><p>Conversational question generation with persona + competency coverage. Follow-up decision. Rubric-based evaluation informed by local metrics.</p></div>
   </section>
 
-  <section class="l-section reveal" id="faq">
-    <div class="l-head"><p class="l-kicker">Questions</p><h2>Good to know</h2></div>
-    <div class="l-faq">
-      <details><summary>Is it free?</summary><p>Yes. Every feature is free. Each account gets a daily allowance of AI requests.</p></details>
-      <details><summary>Where is my data stored?</summary><p>What you create stays in this browser on this device. Your account is only used to sign you in and to use the built-in AI. You can export a backup or delete everything from Settings.</p></details>
-      <details><summary>Do I need an API key?</summary><p>No. Signed-in users get the built-in AI with nothing to set up. You can also connect your own Groq or OpenRouter key in Settings if you prefer.</p></details>
-      <details><summary>What can I type into the AI box?</summary><p>Anything you would ask a helpful colleague who knows the app, such as: "Mock interview for a junior data analyst, behavioral, tough". It plans the steps, runs the app's own functions and tells you what it did. The Instructions tab saves preferences every AI feature follows.</p></details>
-      <details><summary>Can I see the code?</summary><p>Yes. It is open source under the MIT license on <a href="https://github.com/dguywhoknows/interview-practice" rel="noopener">GitHub</a>, with a <a href="tests/">public test suite</a>.</p></details>
-    </div>
-  </section>
-
-  <section class="l-final reveal">
-    <h2>Rehearse with an interviewer who actually listens.</h2>
-    <a class="btn primary big" href="login.html">Get started free</a>
+  <section class="l-wrap l-section" id="notes">
+    <h2>Notes</h2>
+    <dl class="l-notes">
+      <dt>Cost</dt><dd>Free. Each account has a daily allowance of AI requests.</dd>
+      <dt>Your data</dt><dd>What you make stays in this browser on this device. Your account is only used for signing in and for the built-in AI. You can export a backup or clear everything from Settings.</dd>
+      <dt>AI access</dt><dd>Signed-in users get the built-in AI with nothing to set up. You can also use your own Groq or OpenRouter key under Settings.</dd>
+      <dt>Source</dt><dd>The code and tests are on <a href="https://github.com/dguywhoknows/interview-practice" rel="noopener">GitHub</a> under the MIT license. The tests also run <a href="tests/">in your browser</a>.</dd>
+    </dl>
   </section>
 </main>
 
-<footer class="l-foot"><span>Interview Sim</span><span><a href="https://github.com/dguywhoknows/interview-practice" rel="noopener">Source</a> · <a href="tests/">Tests</a> · MIT license</span></footer>
-<script>
-document.querySelectorAll('.reveal').forEach((el) => el.classList.add('pre'));
-const io = new IntersectionObserver((es) => es.forEach((x) => { if (x.isIntersecting) { x.target.classList.remove('pre'); io.unobserve(x.target); } }), { threshold: 0.12 });
-document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
-</script>
+<footer class="l-foot"><div class="l-wrap l-foot-in"><span>Interview Sim, by <a href="https://github.com/dguywhoknows" rel="noopener">dguywhoknows</a></span><span><a href="https://github.com/dguywhoknows/interview-practice" rel="noopener">Source</a> · <a href="tests/">Tests</a> · <a href="login.html">Sign up free</a></span></div></footer>
 </body>
 </html>

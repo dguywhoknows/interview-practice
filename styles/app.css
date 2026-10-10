@@ -1,4 +1,4 @@
-:root { --accent: #0f766e; }
+:root { --accent: #2e6b62; }
 .setup { max-width: 680px; margin: 0 auto; }
 .chk { display: inline-flex; align-items: center; gap: 6px; font-weight: 500; color: var(--text); }
 .room { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 16px; }

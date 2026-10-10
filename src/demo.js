@@ -1,4 +1,4 @@
-/* demo.js — built-in interview questions used offline and for drills. */
+/* Built-in interview questions used offline and for drills. */
 var DEMO_Q = {
   behavioral: ['Hi, thanks for joining! To start, tell me about a project you’re proud of and what your specific role was.', 'Tell me about a time you disagreed with a teammate. How did you handle it?', 'Describe a time something you built failed or had a serious bug. What happened next?', 'Tell me about a time you had to learn something new very quickly.', 'When have you gone beyond what was asked of you?'],
   technical: ['Hi! Let’s start simple: what happens, step by step, when you type a URL into a browser and press Enter?', 'What’s the difference between a process and a thread, and when would you choose one over the other?', 'How would you debug a web page that suddenly became very slow?', 'Explain what a database index is and what it costs you.', 'What does it mean for an operation to be idempotent, and why does it matter for APIs?'],

@@ -1,4 +1,4 @@
-/* core.js — answer analytics (fillers, hedges, STAR, ownership, pace), local scoring and follow-ups, competency tagging, story matching and job-description skill extraction (pure, unit-tested). */
+/* Answer analytics (fillers, hedges, STAR, ownership, pace), local scoring and follow-ups, competency tagging, story matching and job-description skill extraction (pure, unit-tested). */
 
 var FILLER = /\b(um+|uh+|erm|like,|you know|i mean|sort of|kind of|basically|actually|literally|honestly)\b/gi;
 var HEDGE = /\b(i think|i guess|maybe|probably|i'm not sure|not really sure|kind of|sort of|i believe|perhaps)\b/gi;
