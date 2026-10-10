@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en" data-gate="app">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Interview Sim</title>
+<meta name="description" content="Practice interviews with an adaptive AI interviewer: voice or text answers, follow-up probes, STAR and filler-word analytics, and a scored report.">
+<meta name="app-repo" content="https://github.com/dguywhoknows/interview-practice">
+<meta name="app-version" content="2.0.0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f766e'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='Arial%2CHelvetica%2Csans-serif' font-weight='700' font-size='13' fill='white'%3EIS%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/base.css">
+<link rel="stylesheet" href="styles/app.css">
+<script src="src/lib/config.js"></script>
+<script src="src/lib/auth.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><a class="logo-link" href="index.html" aria-label="Home page"><span class="logo" aria-hidden="true">IS</span></a><div><h1>Interview Sim</h1><p>Rehearse with an interviewer who actually listens.</p></div></div>
+  <nav class="topnav" data-nav aria-label="Pages"></nav>
+  <div class="top-actions"><a class="btn ghost sm" href="https://github.com/dguywhoknows/interview-practice" target="_blank" rel="noopener">GitHub</a><span data-ai-badge></span></div>
+</header>
+<div class="page active" data-page="interview" data-title="Interview">
+<main>
+  <section id="setup" class="card setup stack">
+    <h2>Set up your interview</h2>
+    <div class="grid cols-2">
+      <label>Role<input class="input" id="role" value="Junior Software Engineer"></label>
+      <label>Level<select id="level"><option>Intern</option><option selected>Entry level</option><option>Mid level</option><option>Senior</option></select></label>
+      <label>Interview type<select id="type"><option value="behavioral">Behavioral (STAR)</option><option value="technical">Technical concepts</option><option value="system">System design (lite)</option><option value="product">Product sense</option></select></label>
+      <label>Main questions<select id="count"><option>3</option><option selected>4</option><option>5</option></select></label>
+    </div>
+    <label>Job description <span class="small muted">(optional, from the Prep page)</span><textarea id="jdUse" rows="2" placeholder="Paste a job description to tailor the questions"></textarea></label>
+    <label>Interviewer persona<select id="persona"><option value="friendly">Friendly recruiter</option><option value="neutral" selected>Neutral hiring manager</option><option value="tough">Tough senior engineer</option></select></label>
+    <div class="row"><label class="chk"><input type="checkbox" id="tts" checked> Read questions aloud</label><label class="chk"><input type="checkbox" id="followups" checked> Adaptive follow-up probes</label></div>
+    <button class="btn primary" id="start">Start interview</button>
+  </section>
+
+  <section id="room" class="room hidden">
+    <div class="card convo"><div id="chat" class="chat"></div>
+      <div class="answer-box">
+        <div class="row between small muted"><span id="qinfo"></span><span id="ansTimer">0:00</span></div>
+        <textarea id="answer" rows="5" placeholder="Type your answer, or press Speak and talk."></textarea>
+        <div class="row"><button class="btn" id="mic">Speak</button><span class="small muted" id="micStatus"></span><span class="grow"></span><button class="btn ghost" id="skip">Skip</button><button class="btn primary" id="submit">Submit answer</button></div>
+      </div>
+    </div>
+    <aside class="stack">
+      <div class="card"><h2>Live answer metrics</h2><div id="live"></div></div>
+      <div class="card hidden" id="storyHint"><h2>Stories that fit</h2><div id="storyMatches" class="small"></div></div>
+      <div class="card"><h2>Progress</h2><div id="prog"></div><button class="btn sm ghost" id="endEarly" style="margin-top:10px">End &amp; get report</button></div>
+    </aside>
+  </section>
+
+  <section id="report" class="hidden stack"></section>
+</main>
+</div>
+<div class="page" data-page="prep" data-title="Prep">
+<main class="grid cols-2">
+  <section class="card stack">
+    <h2 style="margin:0">Job description</h2>
+    <textarea id="jd" rows="16" placeholder="Paste the job posting" aria-label="Job description"></textarea>
+    <div class="row"><button class="btn primary" id="jdGo">Analyze</button><button class="btn" id="jdQs">Likely questions</button><button class="btn ghost" id="jdPractice">Practice with this job</button></div>
+  </section>
+  <section class="stack">
+    <div class="card"><h2>Skills mentioned</h2><div id="jdSkills" class="row"></div><p class="small muted" id="jdYears"></p></div>
+    <div class="card"><h2>Requirements</h2><ul id="jdReqs" class="small"></ul></div>
+    <div class="card"><h2>Likely questions</h2><div id="jdQuestions" class="small"><span class="muted">Press "Likely questions".</span></div></div>
+  </section>
+</main>
+</div>
+
+<div class="page" data-page="stories" data-title="Stories">
+<main class="grid side">
+  <aside class="stack">
+    <form class="card stack" id="storyForm">
+      <h2 style="margin:0" id="storyFormTitle">New STAR story</h2>
+      <input class="input" id="sTitle" placeholder="Short title, e.g. Deploy pipeline rescue" required aria-label="Title">
+      <textarea id="sS" rows="2" placeholder="Situation: where, when, what was going on" aria-label="Situation"></textarea>
+      <textarea id="sT" rows="2" placeholder="Task: your goal or responsibility" aria-label="Task"></textarea>
+      <textarea id="sA" rows="3" placeholder="Action: what you did, step by step" aria-label="Action"></textarea>
+      <textarea id="sR" rows="2" placeholder="Result: what changed, with numbers if you can" aria-label="Result"></textarea>
+      <div id="sTags" class="row small"></div>
+      <div class="row"><button class="btn primary" type="submit">Save story</button><button class="btn ghost" type="button" id="sReset">Clear</button><button class="btn ghost" type="button" id="sPolish">Tighten with AI</button></div>
+    </form>
+    <div class="card"><h2>Coverage gaps</h2><div id="gaps" class="small"></div></div>
+  </aside>
+  <section class="stack">
+    <div class="card row"><input class="input grow" id="sQuery" placeholder="Paste a question to find the best story for it" aria-label="Question"></div>
+    <div id="storyList" class="stack"></div>
+  </section>
+</main>
+</div>
+
+<div class="page" data-page="drills" data-title="Drills">
+<main class="stack" style="max-width:860px">
+  <div class="card row"><select id="dComp" style="width:auto" aria-label="Competency"></select><select id="dLimit" style="width:auto" aria-label="Time limit"><option value="60">1 minute</option><option value="90" selected>90 seconds</option><option value="120">2 minutes</option></select><button class="btn primary" id="dNext">Next question</button></div>
+  <div class="card stack" id="drill"><div class="empty">Short timed answers to one question at a time. Pick a competency and press Next.</div></div>
+</main>
+</div>
+
+<div class="page" data-page="history" data-title="History">
+<main class="stack">
+  <div class="kpis" id="hKpis"></div>
+  <div class="card"><h2>Score and filler trend</h2><div id="hChart"></div></div>
+  <div class="card table-wrap"><table id="hTable"></table></div>
+</main>
+</div>
+
+<div class="page" data-page="settings" data-title="Settings"></div>
+<script src="src/lib/dom.js"></script>
+<script src="src/lib/ai.js"></script>
+<script src="src/lib/router.js"></script>
+<script src="src/lib/copilot.js"></script>
+<script src="src/core.js"></script>
+<script src="src/demo.js"></script>
+<script src="src/app.js"></script>
+</body>
+</html>
