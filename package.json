@@ -1,0 +1,16 @@
+{
+  "name": "interview-practice",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Practice interviews with an adaptive AI interviewer: voice or text answers, follow-up probes, STAR and filler-word analytics, and a scored report.",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "test": "node tests/run-node.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dguywhoknows/interview-practice.git"
+  },
+  "homepage": "https://dguywhoknows.github.io/interview-practice/",
+  "license": "MIT"
+}
